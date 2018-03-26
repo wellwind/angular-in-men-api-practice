@@ -9,7 +9,7 @@ import { InMemDbService } from './in-mem-db.service';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, HttpClientModule, HttpClientInMemoryWebApiModule.forRoot(InMemDbService)],
+  imports: [BrowserModule, HttpClientModule, HttpClientInMemoryWebApiModule.forRoot(InMemDbService, { passThruUnknownUrl: true })],
   providers: [BackendService],
   bootstrap: [AppComponent]
 })

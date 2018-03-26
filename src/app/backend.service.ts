@@ -11,6 +11,6 @@ export class BackendService {
   }
 
   getComments(id): Observable<any> {
-    return this.httpClient.get<any>(`api/comments/?postId=${id}`);
+    return this.httpClient.get<any>(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
   }
 }
