@@ -1,4 +1,4 @@
-A demo repo usint [angular-in-memory-web-api](https://github.com/angular/in-memory-web-api)
+A demo repo using [angular-in-memory-web-api](https://github.com/angular/in-memory-web-api)
 
 Including follow main features:
 
