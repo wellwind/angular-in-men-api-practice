@@ -17,4 +17,8 @@ export class BackendService {
   newPost(title: string, body: string) {
     return this.httpClient.post<any>('api/posts', { title, body });
   }
+
+  getPhotos(): Observable<any[]> {
+    return this.httpClient.get<any[]>('foo/bar/photos');
+  }
 }

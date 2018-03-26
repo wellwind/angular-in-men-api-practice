@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { BackendService } from './backend.service';
 import { Observable } from 'rxjs/Observable';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
+
+import { BackendService } from './backend.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,11 @@ export class AppComponent {
   title: string;
   body: string;
 
+  photos$ = this.backendService.getPhotos().pipe(
+    map(data => {
+      return data.slice(0, 10);
+    })
+  );
   posts$;
   postComments: { [key: number]: Observable<any> };
 
