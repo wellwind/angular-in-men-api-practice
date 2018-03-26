@@ -13,4 +13,8 @@ export class BackendService {
   getComments(id): Observable<any> {
     return this.httpClient.get<any>(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
   }
+
+  newPost(title: string, body: string) {
+    return this.httpClient.post<any>('api/posts', { title, body });
+  }
 }

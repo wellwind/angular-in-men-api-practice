@@ -1,3 +1,8 @@
+<div>
+  <span>title</span><input type="text" name="title" [(ngModel)]="title" />
+  <span>body</span><input type="text" name="title" [(ngModel)]="body" />
+  <button (click)="newPost()">Add Post</button>
+</div>
 <ul>
   <li *ngFor="let post of posts$ | async">
     {{ post.title }}

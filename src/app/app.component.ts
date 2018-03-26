@@ -9,14 +9,33 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  posts$ = this.backendService.getPosts().pipe(tap(console.log));
+  title: string;
+  body: string;
+
+  posts$;
   postComments: { [key: number]: Observable<any> };
 
   constructor(private backendService: BackendService) {
     this.postComments = {};
+    this.refreshPosts();
+  }
+
+  refreshPosts() {
+    this.posts$ = this.backendService.getPosts().pipe(tap(console.log));
   }
 
   getCommments(id) {
     this.postComments[id] = this.backendService.getComments(id).pipe(tap(console.log));
+  }
+
+  newPost() {
+    this.backendService
+      .newPost(this.title, this.body)
+      .pipe(
+        tap(() => {
+          this.refreshPosts();
+        })
+      )
+      .subscribe();
   }
 }
