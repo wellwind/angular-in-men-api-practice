@@ -7,6 +7,10 @@ export class BackendService {
   constructor(private httpClient: HttpClient) {}
 
   getPosts(): Observable<any> {
-    return this.httpClient.get<any>('/api/posts');
+    return this.httpClient.get<any>('api/posts');
+  }
+
+  getComments(id): Observable<any> {
+    return this.httpClient.get<any>(`api/comments/?postId=${id}`);
   }
 }

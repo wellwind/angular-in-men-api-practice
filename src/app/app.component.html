@@ -1,5 +1,11 @@
 <ul>
   <li *ngFor="let post of posts$ | async">
     {{ post.title }}
+    <button (click)="getCommments(post.id)">Show Comments</button>
+    <ul *ngIf="postComments[post.id] | async as comments">
+      <li *ngFor="let comment of comments">
+        {{ comment.name }}
+      </li>
+    </ul>
   </li>
 </ul>
